@@ -1,0 +1,144 @@
+:root{
+--img-widht:22rem;
+}
+.preloader {
+position: relative;
+overflow: hidden;
+height: 100svh;
+}
+
+.preloader__text {
+text-transform: uppercase;
+font-size: 1.125rem;
+letter-spacing: 1%;
+font-weight: 400;
+font-family: var(--font-additional);
+}
+
+.preloader__content {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+.preloader__content > div {
+display: flex;
+align-items: center;
+gap: 3rem;
+}
+
+.preloader__image-container {
+position: absolute;
+left: 50%;
+bottom: 0;
+transform: translateX(-50%);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.preloader__image-inner {
+transform: rotateX(75deg) rotateZ(-45deg);
+height: 100%;
+width: 100%;
+overflow: hidden;
+will-change: transform;
+}
+
+.preloader__video{
+height: var(--img-widht);
+aspect-ratio: 1 / 1;
+transform: scale(1.2);
+transform-origin: 67% 88%;
+will-change: transform;
+object-fit: fill;
+}
+
+.preloader__hero {
+position: fixed;
+inset: 0;
+pointer-events: none;
+}
+.preloader__image{
+width:var(--img-widht);
+aspect-ratio: 1 / 1;
+}
+.preloader__hero .preloader__image {
+width:100%;
+height: 100%;
+position: absolute;
+inset: 0;
+}
+
+.preloader__hero .preloader__video {
+width: 100%;
+height: 100%;
+}
+.preloader__image-stack{
+position: absolute;
+bottom: 0;
+}
+.preloader__image-layer{
+--offset: 50px;
+
+position: absolute;
+transform: rotateX(75deg) rotateZ(-45deg) translate(calc(var(--offset) * -1), var(--offset));
+overflow: hidden;
+z-index: -1;
+will-change: transform, clip-path;
+}
+
+.preloader__image-layer:nth-child(2) {
+--offset: 100px;
+z-index: -2;
+}
+
+.preloader__image-layer:nth-child(3) {
+--offset: 150px;
+position: relative;
+z-index: -3;
+}
+.preloader__image-layer-media{
+width: var(--img-widht);
+aspect-ratio: 1 / 1;
+}
+
+.preloader__image-animation {
+clip-path: circle(0% at 50% 50%);
+will-change: transform, clip-path;
+}
+
+/* HERO----------------------------------------------------- */
+
+.preloader__hero-content{
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding-bottom:80px;
+opacity: 0;
+will-change: opacity;
+}
+.preloader__hero-description{
+max-width:615px;
+margin-left: auto;
+color: var(--base-100);
+font-weight: 200;
+font-size: 2rem;
+line-height: 120%;
+letter-spacing: -2%;
+}
+.preloader__hero-title{
+max-width:700px;
+color: var(--base-100);
+font-weight: 200;
+font-size: 4.375rem;
+line-height: 110%;
+letter-spacing: -2%;
+text-transform:capitalize;
+}
+.preloader__hero-title span{
+font-weight: 400;
+font-style: italic;
+}
