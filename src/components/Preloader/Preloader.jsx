@@ -16,10 +16,37 @@ const Preloader = () => {
 const preloader = useRef(null);
 
     useGSAP(() => {
-        const waitForFonts = async () => {
-            await document.fonts.ready;
-            await new Promise((resolve) => setTimeout(resolve, 200));
-        };
+    const waitForAssets = async () => {
+        await document.fonts.ready;
+
+        const images = Array.from(document.images);
+        const videos = Array.from(document.querySelectorAll("video"));
+
+        const imagePromises = images.map((img) => {
+            if (img.complete) return Promise.resolve();
+
+            return new Promise((resolve) => {
+                img.addEventListener("load", resolve, { once: true });
+                img.addEventListener("error", resolve, { once: true });
+            });
+        });
+
+        const videoPromises = videos.map((video) => {
+            if (video.readyState >= 3) return Promise.resolve();
+
+            return new Promise((resolve) => {
+                video.addEventListener("canplaythrough", resolve, { once: true });
+                video.addEventListener("error", resolve, { once: true });
+            });
+        });
+
+        await Promise.all([
+            ...imagePromises,
+            ...videoPromises,
+        ]);
+
+        await new Promise((resolve) => setTimeout(resolve, 200));
+    };
 
         const animatePreloader = () => {
             const q = gsap.utils.selector(preloader);
@@ -76,7 +103,7 @@ const preloader = useRef(null);
         };
 
         const init = async () => {
-            await waitForFonts();
+            await waitForAssets();
             animatePreloader();
         };
 
