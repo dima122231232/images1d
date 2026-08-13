@@ -113,6 +113,7 @@ const preloader = useRef(null);
 
     return (
         <section className="preloader" ref={preloader}>
+            
             <div className="preloader__content">
                 <Copy
                     animateOnScroll={false}

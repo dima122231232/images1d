@@ -7,6 +7,7 @@ overflow: hidden;
 height: 100svh;
 }
 
+
 .preloader__text {
 text-transform: uppercase;
 font-size: 1.125rem;
@@ -119,6 +120,7 @@ justify-content: flex-end;
 padding-bottom:80px;
 opacity: 0;
 will-change: opacity;
+transform-origin: 50% 0%;
 }
 .preloader__hero-description{
 max-width:615px;

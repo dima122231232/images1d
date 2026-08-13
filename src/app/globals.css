@@ -31,7 +31,8 @@
 }
 body {
     font-family: var(--font-primary);
-    background-color:   #FFE150;
+    /* background-color:   #FFE150; */
+     background-color:   #fff;
     color: var(--content-100);
 }
 

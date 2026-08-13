@@ -11,7 +11,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-const REQUIRED_FONTS = ["TWK"];
+const REQUIRED_FONTS = ["PP", "Aeonik"];
 
 const TEXT_SELECTOR =
   "h1,h2,h3,h4,h5,h6,p,a,li,label,blockquote,figcaption,span";
@@ -21,7 +21,13 @@ const TEXT_SELECTOR =
 async function waitForFonts() {
   try {
     await document.fonts.ready;
-    REQUIRED_FONTS.forEach((font) => document.fonts.check(`16px "${font}"`));
+
+    await Promise.all(
+      REQUIRED_FONTS.map((font) =>
+        document.fonts.load(`16px "${font}"`)
+      )
+    );
+
     await new Promise((resolve) => setTimeout(resolve, 100));
   } catch {
     await new Promise((resolve) => setTimeout(resolve, 200));

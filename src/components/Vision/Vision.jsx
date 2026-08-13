@@ -1,16 +1,30 @@
 import Cloud from "./Cloud Animation/Cloud";
 import "./Vision.css"; 
- 
+import Copy from "@/components/Copy/Copy";
+
 export default function Vision() { 
+
   return ( 
     <> 
         <section className="vision"> 
             <div className="vision__container container"> 
                 <div className="vision__intro"> 
                     <div className="vision__content"> 
+                        <Copy
+                            type="words"
+                            stagger={0.04}
+                        >
                         <h2 className="vision__title font-primary">The next century of innovation <br/>
 will be the design of better systems.</h2> 
+                        </Copy>
+
+                        <Copy
+                            type="words"
+                            start="top bottom"
+                            stagger={0.04}
+                        >
                         <p className="vision__description">If Imagination is our collective capacity to articulate better futures. Design is the method to rigorously bring them to fruition by building new models.</p> 
+                        </Copy>
                     </div> 
                 </div> 
                 <div className="vision__systems"> 
