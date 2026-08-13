@@ -82,6 +82,7 @@ const preloader = useRef(null);
                     ...anim,
                     onComplete: () => {
                         gsap.set(image, { clearProps: "transform" });
+                        window.dispatchEvent(new Event("preloaderComplete"));
                     },
                 });
             };
@@ -118,11 +119,12 @@ const preloader = useRef(null);
                     type="words"
                     stagger={0.04}
                 >
-                    <p className="preloader__text">What if</p>
+                    {/* <p className="preloader__text">What if</p>
 
                     <p className="preloader__text">
                         Philanthropy was the first investor in new social systems
-                    </p>
+                    </p> */}
+                    <p className="preloader__text">Imagination is the most valuable natural resource on earth.</p>
                 </Copy>
             </div>
 
@@ -146,9 +148,9 @@ const preloader = useRef(null);
                         <img src="/preloader/1.jpg" alt="" className="preloader__image-layer-media" />
                     </div>
 
-                    <div className="preloader__image-layer preloader__image-animation">
+                    {/* <div className="preloader__image-layer preloader__image-animation">
                         <img src="/preloader/2.jpg" alt="" className="preloader__image-layer-media" />
-                    </div>
+                    </div> */}
 
                     <div className="preloader__image-layer preloader__image-animation">
                         <img src="/preloader/3.jpg" alt="" className="preloader__image-layer-media" />

@@ -1,7 +1,103 @@
+"use client";
+
 import "./Header.css"
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 export default function Header() {
-  return (
+
+    useGSAP(() => {
+        const header = document.querySelector(".header");
+
+        if (!header) return;
+
+        gsap.set(header, {
+            y: -100,
+        });
+
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        let headerReady = false;
+
+        const showHeader = () => {
+            gsap.to(header, {
+                y: 0,
+                duration: .8,
+                ease: "power3.out",
+                overwrite: true,
+            });
+        };
+
+        const hideHeader = () => {
+            gsap.to(header, {
+                y: -100,
+                duration: .8,
+                ease: "power3.out",
+                overwrite: true,
+            });
+        };
+
+        const startHeader = () => {
+            headerReady = true;
+            lastScrollY = window.scrollY;
+
+            gsap.delayedCall(.75, showHeader);
+        };
+
+        const updateHeader = () => {
+            if (!headerReady) {
+                ticking = false;
+                return;
+            }
+
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY <= -10) {
+                hideHeader();
+            } else if (currentScrollY > lastScrollY) {
+                hideHeader();
+            } else if (currentScrollY < lastScrollY) {
+                showHeader();
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        };
+
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener(
+            "preloaderComplete",
+            startHeader
+        );
+
+        window.addEventListener(
+            "scroll",
+            handleScroll,
+            { passive: true }
+        );
+
+        return () => {
+            window.removeEventListener(
+                "preloaderComplete",
+                startHeader
+            );
+
+            window.removeEventListener(
+                "scroll",
+                handleScroll
+            );
+        };
+    });
+return (
     <>
         <header className="header">
             <div className="header__inner">

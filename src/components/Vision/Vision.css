@@ -1,0 +1,33 @@
+.vision{
+    position: relative;
+    background-color: var(--bg-color);
+    padding:5rem 0;
+}
+.vision__container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.vision__content{
+    display: flex;
+    flex-direction: column;
+    gap: 12.5rem;
+}
+.vision__title{
+    max-width: 750px;
+}
+
+.vision__description{
+    max-width:400px;
+    margin-left: auto;
+    font-family: var(--font-additional);
+    font-size: 1rem;
+    line-height: 140%;
+    letter-spacing: 1%;
+    color: var(--content-300);
+    font-weight: 400;
+}
+.vision__systems{
+    position: relative;
+    height:100svh;
+}

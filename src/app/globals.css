@@ -9,9 +9,10 @@
     --base-300: #F7FF15;
 
     --content-100: #000000;
-    --content-200: #191919;
+    --content-200: #171717;
+    --content-300: #22002F;
     
-    --bg-mono: #ffffff;
+    --bg-color: #ffffff;
     --link-color: #000;
     
 
@@ -37,11 +38,31 @@ body {
 img{
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 .container{
     position: relative;
     padding:0 var(--indents);
     width: 100%;
     height:100%;
+}
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-additional {
+  font-family: var(--font-additional);
+}
+
+h2.font-primary ,
+h3.font-primary ,
+h4.font-primary 
+{
+    font-weight:200;
+    text-transform: capitalize;
+    font-family: var(--font-primary);
+    color: var(--content-300);
+    font-size: 3.5rem;
+    line-height:120%;
+    letter-spacing: -2%;
 }
