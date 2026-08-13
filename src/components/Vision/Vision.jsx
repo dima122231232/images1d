@@ -16,27 +16,27 @@ will be the design of better systems.</h2>
                 <div className="vision__systems"> 
                     <div className="vision__systems-content"> 
                         <div className="vision__categories"> 
-                            <p className="vision__category">Adaptive Health</p> 
-                            <p className="vision__category">Catalytic Philanthropy</p> 
+                            <p className="vision__category font-additional">Adaptive Health</p> 
+                            <p className="vision__category font-additional">Catalytic Philanthropy</p> 
                         </div> 
                         <div className="vision__active"> 
                             <h6 className="vision__active-title">Communities of Tomorrow</h6> 
                         </div> 
                         <div className="vision__list-wrapper"> 
                             <ul className="vision__list"> 
-                                <li className="vision__list-item"> 
+                                <li className="vision__list-item font-additional"> 
                                     Communities of Tomorrow 
                                 </li> 
-                                <li className="vision__list-item"> 
+                                <li className="vision__list-item font-additional"> 
                                     Civic Life 
                                 </li> 
-                                <li className="vision__list-item"> 
+                                <li className="vision__list-item font-additional"> 
                                     Experiential Learning 
                                 </li> 
-                                <li className="vision__list-item"> 
+                                <li className="vision__list-item font-additional"> 
                                     Regenerative Homes 
                                 </li> 
-                                <li className="vision__list-item"> 
+                                <li className="vision__list-item font-additional"> 
                                     Transformative Travel 
                                 </li> 
                             </ul> 
